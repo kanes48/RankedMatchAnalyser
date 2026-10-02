@@ -2,7 +2,7 @@
 
 Can get some match information from the ranked API:
 
--Forefeited?
+- Forefeited?
 
 - Time
 
