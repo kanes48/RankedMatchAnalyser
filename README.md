@@ -8,8 +8,14 @@ Can get some match information from the ranked API:
 
 - Timeline
 
-- Player?
+- Player
 
 - Winner?
 
 - Private or Public?
+
+- Bastion type
+
+- Overworld type
+
+- Variations
