@@ -1,6 +1,9 @@
 package mc.api;
 
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
 
@@ -9,12 +12,31 @@ public class Main {
         String playerName = "SubToKanes";
         String url = "https://api.mcsrranked.com";
 
-        List<Match> matches =
-                APIClient.getLast100RankedMatches(playerName, url);
+        List<Match> matchesNewest =
+                APIClient.getLast100RankedMatches(playerName, url, false, 75);
 
-        for (Match match : matches) {
-            // printBasicInfo(match);
+        List<Match> matchesOldest =
+                APIClient.getLast100RankedMatches(playerName, url, true, 75);
+
+        List<Match> matches = removeDuplicates(matchesOldest, matchesNewest);
+
+        System.out.println("Total number of private room matches played: " + matches.size());
+
+        for(Match m: matches){
+            //printBasicInfo(m);
         }
+    }
+
+    private static List<Match> removeDuplicates(
+            List<Match> matchesOldest,
+            List<Match> matchesNewest) {
+
+        Set<Match> unique = new LinkedHashSet<>();
+
+        unique.addAll(matchesNewest);
+        unique.addAll(matchesOldest);
+
+        return new ArrayList<>(unique);
     }
 
     private static void printBasicInfo(Match match){

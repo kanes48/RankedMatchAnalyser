@@ -22,7 +22,9 @@ public class APIClient {
 
     public static List<Match> getLast100RankedMatches(
             String playerName,
-            String urlIn
+            String urlIn,
+            boolean sortByOldest,
+            int numberOfMatches
     ) throws IOException, InterruptedException {
 
         String encodedPlayer =
@@ -33,9 +35,12 @@ public class APIClient {
 
         String url = urlIn
                 + "/users/" + encodedPlayer + "/matches"
-                + "?count=100"
+                + "?count=" + numberOfMatches
                 + "&type=3"
                 + "&excludedecay=true";
+
+        if(sortByOldest)
+            url += "&sort=oldest";
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
@@ -124,9 +129,6 @@ public class APIClient {
 
             matches.add(match);
         }
-
-        System.out.println("Match size: " + matches.size());
-
         return matches;
     }
 }

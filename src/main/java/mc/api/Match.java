@@ -5,6 +5,19 @@ import java.util.List;
 
 public class Match {
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Match match)) return false;
+
+        return id == match.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(id);
+    }
+
     public int id;
 
     /**
