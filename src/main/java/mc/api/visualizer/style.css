@@ -1,0 +1,297 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #07090c;
+  --panel: #0d1117;
+  --panel-2: #11161d;
+  --border: #202832;
+  --grid: #1a2028;
+  --text: #f3f5f7;
+  --muted: #7f8995;
+  --accent: #ffffff;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  padding: 32px;
+}
+
+.app {
+  width: min(1500px, 100%);
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 32px;
+  margin-bottom: 22px;
+}
+
+h1, h2, p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 30px;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: 24px;
+  letter-spacing: -0.025em;
+}
+
+header p {
+  margin-top: 5px;
+  color: var(--muted);
+}
+
+.header-stats {
+  display: flex;
+  gap: 28px;
+}
+
+.header-stats div {
+  text-align: right;
+}
+
+.header-stats span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: .12em;
+  font-weight: 700;
+}
+
+.header-stats strong {
+  display: block;
+  margin-top: 3px;
+  font-size: 23px;
+  font-variant-numeric: tabular-nums;
+}
+
+.stage,
+.distribution,
+.data-section {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.stage {
+  padding: 22px;
+}
+
+.stage-top,
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.eyebrow {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+.stage-top h2 {
+  margin-top: 5px;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  padding: 9px 14px;
+  border-radius: 9px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: #394451;
+  background: #171d25;
+}
+
+.chart-wrap {
+  width: 100%;
+  aspect-ratio: 1600 / 760;
+  background: #090c10;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  overflow: hidden;
+}
+
+svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.grid {
+  stroke: var(--grid);
+  stroke-width: 2;
+}
+
+.axis {
+  fill: var(--muted);
+  font-size: 22px;
+}
+
+.axis-title {
+  fill: var(--muted);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.run-line {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pb-line {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 3;
+  stroke-dasharray: 10 10;
+  opacity: .35;
+}
+
+.dot {
+  fill: #cbd1d7;
+}
+
+.current-dot {
+  fill: #fff;
+  stroke: #090c10;
+  stroke-width: 5;
+}
+
+.pb-dot {
+  fill: #fff;
+  stroke: #090c10;
+  stroke-width: 6;
+}
+
+.guide {
+  stroke: #fff;
+  stroke-width: 2;
+  opacity: .12;
+}
+
+.point-label {
+  fill: #fff;
+  font-size: 24px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.pb-badge {
+  fill: #fff;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.timeline {
+  padding: 14px 4px 2px;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #fff;
+}
+
+.distribution {
+  margin-top: 20px;
+  padding: 22px;
+}
+
+.section-heading span:last-child {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.hist-bar {
+  fill: #dfe3e7;
+  opacity: .9;
+}
+
+.hist-bar.highlight {
+  fill: #fff;
+}
+
+.data-section {
+  margin-top: 20px;
+}
+
+details {
+  padding: 16px 20px;
+}
+
+summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+pre {
+  overflow: auto;
+  color: #aeb7c1;
+  background: #080a0d;
+  padding: 14px;
+  border-radius: 10px;
+  margin-top: 14px;
+  font-size: 12px;
+}
+
+code {
+  color: #dce1e6;
+}
+
+@media (max-width: 750px) {
+  body {
+    padding: 14px;
+  }
+
+  header,
+  .stage-top,
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .header-stats {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .header-stats div {
+    text-align: left;
+  }
+}
