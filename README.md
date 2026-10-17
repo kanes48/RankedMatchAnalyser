@@ -17,5 +17,3 @@ Can get some match information from the ranked API:
 - Bastion type
 
 - Overworld type
-
-- Variations
