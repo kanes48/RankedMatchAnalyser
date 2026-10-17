@@ -3,11 +3,10 @@ package mc.api.visualizer;
 import java.util.List;
 
 public record ExtendedMatch(
-        int id,
         List<Split> splits,
-        double finalTime,
         String bastionType,
-        String overworldType
+        String overworldType,
+        double time
 ) {
     public record Split(
             String name,
